@@ -1,0 +1,39 @@
+class Technology:
+    def __init__(self, name, description, programming_languages):
+        self.name = name
+        self.description = description
+        self.programming_languages = programming_languages
+
+    def display_technology(self):
+        print(f"Technology: {self.name}")
+        print("Description:", self.description)
+        print("Programming Languages:")
+        for language in self.programming_languages:
+            print(f"- {language}")
+        print()
+
+class ITRepository:
+    def __init__(self):
+        self.technologies = []
+
+    def add_technology(self, technology):
+        self.technologies.append(technology)
+
+    def display_technologies(self):
+        if not self.technologies:
+            print("No technologies in the repository.")
+        else:
+            print("Technologies in the Repository:")
+            for technology in self.technologies:
+                technology.display_technology()
+
+if __name__ == '__main__':
+    repository = ITRepository()
+
+    technology1 = Technology("Web Development", "Building websites and web applications.", ["HTML", "CSS", "JavaScript", "Python"])
+    repository.add_technology(technology1)
+
+    technology2 = Technology("Data Science", "Extracting insights from data.", ["Python", "R", "SQL"])
+    repository.add_technology(technology2)
+
+    repository.display_technologies()
